@@ -158,7 +158,8 @@ def your_birthday_is_on_a_friday_in_the_year(date)
 end
 
 def count_words_of_each_length_in_a_file(file)
-
+  words = IO.read(file).split(/\W+/)
+  counts = Hash.new 0
+  words.each_with_object(counts) { |word,counts| counts[word.length] += 1 }
+  counts.sort.to_h
 end
-
-
